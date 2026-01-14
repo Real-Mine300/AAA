@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | AAA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+  <header>
+    <h1>Anemia Awareness Alliance (AAA)</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="research.html">Anemia Info</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">Light / Dark</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Who We Are</h2>
+      <p>
+        We are a nonprofit organization focused on education, advocacy, and collaboration
+        to address anemia as a global public health issue. Our mission is to raise awareness,
+        improve education, and support research aimed at prevention, early detection, and effective treatment.
+      </p>
+
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>
+          To raise awareness about anemia, improve education, and support research aimed at prevention,
+          early detection, and effective treatment of anemia worldwide.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>
+          A world where anemia is widely understood, easily prevented, and effectively treated,
+          leading to improved health outcomes for individuals and communities globally.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Our Values</h3>
+        <ul class="values-list">
+          <li>Education and awareness as fundamental tools for health improvement</li>
+          <li>Collaboration with healthcare providers, researchers, and communities</li>
+          <li>Evidence-based approaches to prevention and treatment</li>
+          <li>Accessibility and equity in health information and resources</li>
+          <li>Compassion and support for those affected by anemia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Iron Rush Mini-Game -->
+    <section>
+      <h2>Iron Rush - Learn While You Play</h2>
+      <p>
+        Try our interactive mini-game to learn about iron-rich foods and what to avoid!
+        Control a red blood cell and collect iron-rich foods while avoiding items that block iron absorption.
+      </p>
+      <div class="game-container">
+        <div class="game-wrapper">
+          <canvas id="ironRushCanvas" class="game-canvas"></canvas>
+          <p class="game-description">
+            Use arrow keys or WASD to move. Collect iron-rich foods (meat, spinach, beans, vitamin C) and avoid tea, coffee, and milk.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section>
+      <h2>Our Team</h2>
+      <p>
+        Meet the dedicated individuals working to raise awareness about anemia and improve health outcomes worldwide.
+      </p>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">Dr. Sarah Chen</div>
+          <div class="team-member-role">Executive Director</div>
+          <div class="team-member-bio">
+            Leading our organization with over 15 years of experience in public health and nonprofit management.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">Dr. Michael Rodriguez</div>
+          <div class="team-member-role">Medical Advisor</div>
+          <div class="team-member-bio">
+            Hematologist with expertise in anemia diagnosis, treatment, and research.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">Emily Johnson</div>
+          <div class="team-member-role">Education Coordinator</div>
+          <div class="team-member-bio">
+            Developing educational programs and resources to increase anemia awareness.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">James Thompson</div>
+          <div class="team-member-role">Research Director</div>
+          <div class="team-member-bio">
+            Coordinating research initiatives and partnerships with academic institutions.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">Dr. Priya Patel</div>
+          <div class="team-member-role">Community Outreach Lead</div>
+          <div class="team-member-bio">
+            Building relationships with communities and healthcare providers worldwide.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">David Kim</div>
+          <div class="team-member-role">Communications Manager</div>
+          <div class="team-member-bio">
+            Managing our digital presence and public communications strategy.
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-member-image">👤</div>
+          <div class="team-member-name">Maria Garcia</div>
+          <div class="team-member-role">Program Coordinator</div>
+          <div class="team-member-bio">
+            Supporting program development and implementation across our initiatives.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organization Info Section -->
+    <section class="org-info">
+      <h2>Contact & Organization Information</h2>
+      <div class="org-info-grid">
+        <div class="org-contact">
+          <h4>General Contact</h4>
+          <p><strong>Email:</strong> <a href="mailto:info@anemiaawareness.org">info@anemiaawareness.org</a></p>
+          <p><strong>Phone:</strong> (555) 123-4567</p>
+          <p><strong>Address:</strong><br>
+            123 Health Awareness Drive<br>
+            Medical District, MD 12345<br>
+            United States</p>
+        </div>
+        <div class="org-contact">
+          <h4>Media Inquiries</h4>
+          <p><strong>Email:</strong> <a href="mailto:media@anemiaawareness.org">media@anemiaawareness.org</a></p>
+          <p>For press inquiries, interviews, or media partnerships, please contact our communications team.</p>
+        </div>
+        <div class="org-contact">
+          <h4>Partnership Opportunities</h4>
+          <p><strong>Email:</strong> <a href="mailto:partnerships@anemiaawareness.org">partnerships@anemiaawareness.org</a></p>
+          <p>Interested in collaborating? We welcome partnerships with healthcare providers, researchers, and organizations.</p>
+        </div>
+      </div>
+
+      <div class="card card-margin-top">
+        <h3>Our Goals</h3>
+        <ul>
+          <li>Increase awareness and understanding of anemia</li>
+          <li>Encourage early screening and diagnosis</li>
+          <li>Support medical research and innovation</li>
+          <li>Partner with healthcare providers and communities</li>
+          <li>Provide accessible educational resources</li>
+          <li>Advocate for improved anemia prevention and treatment policies</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Anemia Awareness Alliance (AAA)</p>
+  </footer>
+  <script src="theme.js"></script>
+  <script src="iron-rush-game.js"></script>
+</body>
+</html>

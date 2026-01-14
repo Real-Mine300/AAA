@@ -1,0 +1,957 @@
+/* ============================================
+   Medical Nonprofit - Modern UI System
+   Theme: Iron & Vitality (Dark) / Restoration & Care (Light)
+   ============================================ */
+
+/* ============================================
+   CSS Variables - Color System
+   ============================================ */
+
+:root {
+  /* Identity / Emphasis - Blood Red */
+  --color-blood-deep: #8A0303;        /* Deep Venous Red */
+  --color-blood-oxidized: #991B1B;    /* Oxidized Red */
+  
+  /* Actions / Highlights */
+  --color-vitality-red: #EF4444;      /* Vitality Red - Primary CTA */
+  --color-pale-flush: #FECACA;        /* Pale Flush - Hover/Soft States */
+  
+  /* Structure / Secondary */
+  --color-iron-grey: #334155;         /* Iron Grey - Borders, Icons */
+  --color-pale-slate: #ACB6C3;        /* Pale Slate - Dividers */
+  
+  /* Spacing Scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  
+  /* Shadows - Subtle, Soft */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-base: 0.2s ease;
+  --transition-smooth: 0.3s ease;
+}
+
+/* ============================================
+   Theme: Iron & Vitality (Dark Mode)
+   Default for dashboards, data-heavy views
+   Refined: Softer backgrounds, improved readability, reduced eye strain
+   ============================================ */
+
+:root,
+.theme-dark {
+  /* Backgrounds - Softer, not pure black */
+  --bg-primary: #1A1F2E;               /* Softened Midnight Slate - easier on eyes */
+  --bg-secondary: rgba(255, 255, 255, 0.06);
+  --bg-card: #232836;                  /* Slightly lighter slate for cards - clear separation */
+  --bg-hover: rgba(255, 255, 255, 0.1);
+  --bg-footer: #151821;                /* Neutral footer background */
+  
+  /* Text - Improved contrast for readability */
+  --text-primary: #F1F5F9;            /* Softer off-white - less harsh than pure white */
+  --text-secondary: #CBD5E1;          /* Muted slate - better contrast than before */
+  --text-muted: #94A3B8;              /* Lighter muted for better visibility */
+  
+  /* Borders - Subtle, low-contrast */
+  --border-primary: #475569;          /* Softer iron grey - less harsh */
+  --border-secondary: rgba(71, 85, 105, 0.4);
+  
+  /* Accents - Red only for CTAs, alerts, active states */
+  --accent-primary: #EF4444;          /* Vitality Red */
+  --accent-hover: #DC2626;
+  --accent-focus: rgba(239, 68, 68, 0.25);
+  
+  --blood-identity: #8A0303;          /* Deep Venous Red */
+  
+  /* Header */
+  --header-bg: #8A0303;                /* Deep Venous Red - header background */
+  --header-text: #F8FAFC;              /* Ghost White - header text */
+  --header-border: transparent;        /* No border in dark theme */
+}
+
+/* ============================================
+   Theme: Restoration & Care (Light Mode)
+   Default for landing pages, forms, onboarding
+   Polished: Maintain calm feel, improved contrast
+   ============================================ */
+
+.theme-light {
+  /* Backgrounds - Clean white with soft separators */
+  --bg-primary: #FFFFFF;              /* Pure White */
+  --bg-secondary: rgba(0, 0, 0, 0.04);
+  --bg-card: #FAFBFC;                 /* Very subtle off-white for cards */
+  --bg-hover: rgba(0, 0, 0, 0.06);
+  --bg-footer: #F8F9FA;               /* Neutral footer background - softer than white */
+  
+  /* Text - Improved contrast for navigation and headers */
+  --text-primary: #1F2937;            /* Charcoal */
+  --text-secondary: #4B5563;          /* Slightly darker for better contrast */
+  --text-muted: #6B7280;
+  
+  /* Borders - Soft gray separators */
+  --border-primary: #E5E7EB;          /* Lighter, softer border */
+  --border-secondary: rgba(229, 231, 235, 0.8);
+  
+  /* Accents - Red only for emphasis, not large backgrounds */
+  --accent-primary: #EF4444;          /* Vitality Red */
+  --accent-hover: #DC2626;
+  --accent-focus: rgba(239, 68, 68, 0.15);
+  
+  --blood-identity: #991B1B;          /* Oxidized Red */
+  
+  /* Header */
+  --header-bg: #FFFFFF;                /* Pure White - header background */
+  --header-text: #1F2937;              /* Charcoal - header text */
+  --header-border: #EF4444;            /* Vitality Red - accent border */
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+  min-height: 100vh;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-base);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  color: var(--blood-identity);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-base);
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--spacing-base);
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+ul, ol {
+  margin-bottom: var(--spacing-base);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: var(--spacing-base) var(--spacing-lg);
+display: flex;
+align-items: center;
+justify-content: space-between;
+  gap: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  border-bottom: 2px solid var(--header-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--header-text);
+  letter-spacing: -0.01em;
+}
+
+nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--header-text);
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-base), color var(--transition-base);
+text-decoration: none;
+}
+
+nav a:hover {
+  background-color: var(--bg-hover);
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+nav a:focus {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+}
+
+nav a.active {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+button,
+.btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-base);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-base);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.btn-primary:focus {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--accent-primary);
+  text-decoration: none;
+}
+
+/* ============================================
+   Layout & Sections
+   ============================================ */
+
+section {
+max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-primary);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-base);
+  color: var(--blood-identity);
+}
+
+.card ul,
+.card ol {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-base);
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  margin-bottom: var(--spacing-base);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-focus);
+}
+
+input:invalid,
+textarea:invalid {
+  border-color: var(--accent-primary);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+footer {
+  background-color: var(--bg-footer);
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  margin-top: var(--spacing-3xl);
+  border-top: 1px solid var(--border-secondary);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-secondary);
+}
+
+footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+footer a:hover {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-base);
+  margin-bottom: var(--spacing-sm);
+}
+
+footer .footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+footer .footer-email {
+  margin-top: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   Utility Classes for Layout
+   ============================================ */
+
+.card-cta {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.card-cta h2,
+.card-cta h3 {
+  margin-bottom: var(--spacing-base);
+}
+
+.card-cta p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.btn-group {
+  display: flex;
+  gap: var(--spacing-base);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-base);
+}
+
+.card-margin-top {
+  margin-top: var(--spacing-xl);
+}
+
+.card-cta h2 {
+  color: var(--blood-identity);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-base { margin-top: var(--spacing-base); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-base { margin-bottom: var(--spacing-base); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-base);
+  }
+  
+  nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+  
+  nav a {
+    width: 100%;
+    padding: var(--spacing-sm);
+  }
+  
+  section {
+    padding: var(--spacing-xl) var(--spacing-base);
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Game Styles (Iron Rush)
+   ============================================ */
+
+.game-container {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.game-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-canvas {
+  width: 100%;
+  border-radius: var(--radius-md);
+  display: block;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.game-description {
+  margin-top: var(--spacing-base);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ============================================
+   Team Grid
+   ============================================ */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.team-member {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.team-member:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.team-member-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-primary);
+  margin: 0 auto var(--spacing-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--text-muted);
+}
+
+.team-member-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-member-role {
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-member-bio {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: var(--spacing-sm);
+}
+
+/* ============================================
+   Organization Info
+   ============================================ */
+
+.org-info {
+  margin-top: var(--spacing-xl);
+}
+
+.org-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.org-contact {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.org-contact h4 {
+  color: var(--blood-identity);
+  margin-bottom: var(--spacing-base);
+  font-size: 1.1rem;
+}
+
+.org-contact p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.org-contact a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.org-contact a:hover {
+  text-decoration: underline;
+}
+
+.values-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: var(--spacing-base);
+}
+
+.values-list li {
+  padding-left: var(--spacing-lg);
+  position: relative;
+  margin-bottom: var(--spacing-sm);
+}
+
+.values-list li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+  text-align: center;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-base);
+  color: var(--blood-identity);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.7;
+}
+
+.hero .btn-group {
+  margin-top: var(--spacing-lg);
+}
+
+/* ============================================
+   Stats Grid
+   ============================================ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.stat-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Testimonials
+   ============================================ */
+
+.testimonials {
+  margin: var(--spacing-xl) 0;
+}
+
+.testimonial {
+  background-color: var(--bg-card);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-base);
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   FAQ Section
+   ============================================ */
+
+.faq-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.faq-answer {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Resource Cards
+   ============================================ */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.resource-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.resource-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.resource-card h4 {
+  color: var(--blood-identity);
+  margin-bottom: var(--spacing-sm);
+}
+
+.resource-card p {
+  color: var(--text-secondary);
+font-size: 0.9rem;
+  margin-bottom: var(--spacing-base);
+}
+
+.resource-card a {
+  color: var(--accent-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.resource-card a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Placeholder Styles
+   ============================================ */
+
+.placeholder {
+  background-color: var(--bg-secondary);
+  border: 2px dashed var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 200px;
+  background-color: var(--bg-secondary);
+  border: 2px dashed var(--border-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: var(--spacing-base) 0;
+}
