@@ -46,17 +46,17 @@
       <div class="card">
         <h3>Our Values</h3>
         <ul class="values-list">
-          <li>Education and awareness as fundamental tools for health improvement</li>
-          <li>Collaboration with healthcare providers, researchers, and communities</li>
-          <li>Evidence-based approaches to prevention and treatment</li>
-          <li>Accessibility and equity in health information and resources</li>
-          <li>Compassion and support for those affected by anemia</li>
+          <li><span>Education</span> and awareness as fundamental tools for health improvement</li>
+          <li><span>Collaboration</span> with healthcare providers, researchers, and communities</li>
+          <li><span>Evidence-based</span> approaches to prevention and treatment</li>
+          <li><span>Accessibility</span> and equity in health information and resources</li>
+          <li><span>Compassion</span> and support for those affected by anemia</li>
         </ul>
       </div>
     </section>
 
     <!-- Iron Rush Mini-Game -->
-    <section>
+    <section class="game-section">
       <h2>Iron Rush - Learn While You Play</h2>
       <p>
         Try our interactive mini-game to learn about iron-rich foods and what to avoid!
@@ -181,6 +181,20 @@
     <p>&copy; 2026 Anemia Awareness Alliance (AAA)</p>
   </footer>
   <script src="theme.js"></script>
+  <script>
+    // Show game when clicking a value word
+    document.addEventListener('DOMContentLoaded', function() {
+      const valueWords = document.querySelectorAll('.values-list li span');
+      const gameSection = document.querySelector('.game-section');
+      
+      valueWords.forEach(word => {
+        word.addEventListener('click', function() {
+          gameSection.classList.add('visible');
+          gameSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    });
+  </script>
   <script src="iron-rush-game.js"></script>
 </body>
 </html>
